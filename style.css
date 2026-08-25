@@ -463,4 +463,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
-
+@media (max-width: 480px) {
+  .header-inner { padding: 16px 16px 12px; }
+  .brand { gap: 12px; }
+  .crest { width: 48px; height: 48px; }
+  .brand-text .school-name { font-size: 1.4rem; line-height: 1.2; }
+  .brand-text .school-loc { font-size: 0.85rem; letter-spacing: 0.05em; }
+  .notice-bar { font-size: 0.85rem; padding: 10px 12px; }
+  .container { padding: 0 18px; }
+  .hero { padding: 48px 0 40px; }
+  .cta-banner { padding: 32px 22px; }
+}
+ 
