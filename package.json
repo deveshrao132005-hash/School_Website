@@ -1,0 +1,13 @@
+{
+  "name": "rbs-public-school-backend",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "sql.js": "^1.13.0"
+  }
+}

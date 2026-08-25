@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admissions — RBS Public School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="notice-bar">📢 <strong>Admissions Open</strong> for Session 2026–27 — Nursery to Class X &nbsp;|&nbsp; <a href="admissions.html" style="color:#f7f1e3; text-decoration:underline;">Apply Now</a></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="RBS Public School logo" class="crest">
+      <div class="brand-text">
+        <div class="school-name">RBS Public School</div>
+        <div class="school-loc">Jaitpur · Rewari</div>
+      </div>
+    </a>
+    <div class="header-actions">
+      <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="admissions.html" class="active">Admissions</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+      <a href="admissions.html" class="btn btn-gold">Admissions Open</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" style="padding:56px 0 44px;">
+  <div class="container">
+    <div class="hero-ribbon">ADMISSIONS 2026–27</div>
+    <h1>Join the RBS family</h1>
+    <p style="max-width:600px; font-size:1.05rem;">Admissions are now open for Nursery through Class X. Follow the steps below to begin your child's application.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center;">Process</div>
+      <h2>How to apply</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3 style="font-size:1.05rem;">Enquiry</h3>
+        <p style="font-size:0.9rem;">Submit the enquiry form below or visit the school office.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3 style="font-size:1.05rem;">Registration</h3>
+        <p style="font-size:0.9rem;">Collect and submit the registration form with required documents.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3 style="font-size:1.05rem;">Interaction</h3>
+        <p style="font-size:0.9rem;">A short, age-appropriate interaction with the student and parents.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3 style="font-size:1.05rem;">Confirmation</h3>
+        <p style="font-size:0.9rem;">Admission confirmed on fee payment and document verification.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Eligibility &amp; Age Criteria</h3>
+        <p style="font-size:0.92rem;">Age requirements as of [March/April] [year] for each class:</p>
+        <ul style="color:var(--ink-soft); padding-left:20px; font-size:0.92rem; line-height:1.9;">
+          <li>Nursery: [X] years</li>
+          <li>KG: [X] years</li>
+          <li>Class I: [X] years</li>
+          <li>Class II – X: as per previous class completed</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Documents Required</h3>
+        <ul style="color:var(--ink-soft); padding-left:20px; font-size:0.92rem; line-height:1.9;">
+          <li>Birth certificate (original + copy)</li>
+          <li>Aadhar card of student &amp; parents</li>
+          <li>Previous school's transfer certificate (if applicable)</li>
+          <li>Previous report card / marksheet</li>
+          <li>Passport-size photographs</li>
+          <li>Address proof</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center;">Fees</div>
+      <h2>Fee structure</h2>
+      <p style="max-width:600px; margin:0 auto;">Detailed class-wise fee structure is available at the school office. Contact us for the current fee schedule and payment options.</p>
+    </div>
+    <div style="text-align:center;">
+      <a href="contact.html" class="btn btn-outline">Request Fee Details</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center;">Enquiry Form</div>
+      <h2>Start your application</h2>
+      <p style="max-width:600px; margin:0 auto;">Fill in the details below and our admissions office will get in touch with you.</p>
+    </div>
+    <form class="card" style="max-width:760px; margin:0 auto;" onsubmit="event.preventDefault(); alert('This form is a design preview — connect it to email or a backend to make it functional.');">
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="parent-name">Parent / Guardian Name</label>
+          <input type="text" id="parent-name" placeholder="Full name" required>
+        </div>
+        <div class="form-field">
+          <label for="student-name">Student Name</label>
+          <input type="text" id="student-name" placeholder="Full name" required>
+        </div>
+        <div class="form-field">
+          <label for="class-applying">Class Applying For</label>
+          <select id="class-applying">
+            <option>Nursery</option>
+            <option>KG</option>
+            <option>Class I</option>
+            <option>Class II</option>
+            <option>Class III</option>
+            <option>Class IV</option>
+            <option>Class V</option>
+            <option>Class VI</option>
+            <option>Class VII</option>
+            <option>Class VIII</option>
+            <option>Class IX</option>
+            <option>Class X</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="10-digit mobile number" required>
+        </div>
+        <div class="form-field full">
+          <label for="message">Message (optional)</label>
+          <textarea id="message" placeholder="Any questions for the admissions office?"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-top:12px;">Submit Enquiry</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="logo.png" alt="RBS Public School logo" class="crest" style="margin-bottom:14px;">
+        <p>RBS Public School, Jaitpur, Rewari, Haryana. Committed to academic excellence and character building since 2003.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Jaitpur, Rewari, Haryana</li>
+          <li>9992298477</li>
+          <li>admissions@rbsrewari.com</li>
+        </ul>
+      </div>
+      <div>
+        <h4>School Hours</h4>
+        <ul>
+          <li>Mon – Sat: 08:00 AM – 03:00 PM</li>
+          <li>Office: 08:00 AM – 03:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> RBS Public School, Jaitpur, Rewari. All rights reserved.</span>
+      <span>Website crafted with care for our school community.</span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

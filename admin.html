@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enquiries Dashboard — RBS Public School</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f6f8;color:#18212b}
+header{background:#183b56;color:#fff;padding:22px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px}
+main{padding:30px 5%}.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+input,button,select{padding:10px;border:1px solid #ccd3da;border-radius:6px}
+button{cursor:pointer;background:#183b56;color:white;border:0}
+.card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 12px #0001;margin-bottom:20px}
+.table-wrap{overflow:auto;background:#fff;border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:1000px}
+th,td{padding:11px;border-bottom:1px solid #e5e7eb;text-align:left;vertical-align:top}
+th{background:#eef2f5}.muted{color:#68737d}
+.error{color:#a11}.success{color:#176b3a}
+</style>
+</head>
+<body>
+<header><div><strong>RBS Public School</strong><div class="muted" style="color:#dbe8f0">Enquiry Dashboard</div></div><a href="/" style="color:#fff">Website</a></header>
+<main>
+<div class="card">
+  <h2>View Website Enquiries</h2>
+  <div class="controls">
+    <input id="password" type="password" placeholder="Admin password">
+    <select id="filter"><option value="all">All</option><option value="admission">Admissions</option><option value="contact">Contact</option></select>
+    <button onclick="loadData()">Load Enquiries</button>
+    <button onclick="downloadCSV()">Export CSV</button>
+  </div>
+  <div id="status" class="muted">Enter the admin password and load enquiries.</div>
+</div>
+<div class="table-wrap"><table id="table"><thead><tr>
+<th>ID</th><th>Type</th><th>Date</th><th>Name / Parent</th><th>Student</th><th>Class</th><th>Email</th><th>Phone</th><th>Subject</th><th>Message</th>
+</tr></thead><tbody></tbody></table></div>
+</main>
+<script>
+let rows=[];
+async function loadData(){
+  const password=document.getElementById("password").value;
+  const status=document.getElementById("status");
+  status.textContent="Loading...";
+  try{
+    const r=await fetch("/api/enquiries",{headers:{"x-admin-password":password}});
+    const data=await r.json();
+    if(!r.ok) throw new Error(data.error||"Could not load data");
+    rows=data;
+    render();
+    status.className="success";
+    status.textContent=data.length+" enquiry/enquiries found.";
+  }catch(e){status.className="error";status.textContent=e.message;}
+}
+function render(){
+  const filter=document.getElementById("filter").value;
+  const body=document.querySelector("#table tbody");
+  body.innerHTML="";
+  rows.filter(x=>filter==="all"||x.type===filter).forEach(x=>{
+    const tr=document.createElement("tr");
+    [x.id,x.type,x.created_at,x.parent_name||x.name||"",x.student_name||"",x.class_applying||"",x.email||"",x.phone||"",x.subject||"",x.message||""]
+      .forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td)});
+    body.appendChild(tr);
+  });
+}
+document.getElementById("filter").addEventListener("change",render);
+function downloadCSV(){
+  const filter=document.getElementById("filter").value;
+  const selected=rows.filter(x=>filter==="all"||x.type===filter);
+  const headers=["id","type","created_at","parent_name","student_name","class_applying","name","email","phone","subject","message"];
+  const esc=v=>`"${String(v??"").replaceAll('"','""')}"`;
+  const csv=[headers.join(","),...selected.map(r=>headers.map(h=>esc(r[h])).join(","))].join("\\n");
+  const blob=new Blob([csv],{type:"text/csv"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="rbs-enquiries.csv";a.click();URL.revokeObjectURL(a.href);
+}
+</script>
+</body>
+</html>
